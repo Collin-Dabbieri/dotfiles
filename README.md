@@ -1,0 +1,1 @@
+Dotfiles for Fedora setup with i3-gaps
