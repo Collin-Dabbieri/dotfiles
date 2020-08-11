@@ -60,11 +60,12 @@ bindsym $mod+q kill
 
 
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# change focus (changed these to make them vim-like)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -84,8 +85,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# split in horizontal orientation (this was originally $mod+h but I needed that for vim-like focus switching)
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -227,9 +228,11 @@ bar {
 
 bindsym $mod+shift+x exec ~/i3_scripts/lock.sh ~/Pictures/Icons/icon5.png
 
+bindsym $mod+m exec urxvt -e ranger
+
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklit -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -244,7 +247,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/ismail-inceoglu-just-chillin.jpg
 #this should also make rofi transparent but that doesn't work for some reason
 exec --no-startup-id compton -f
 
-exec --no-startup-id wal -R -a "85"
+exec --no-startup-id wal -R -a "85" 
 
 
 

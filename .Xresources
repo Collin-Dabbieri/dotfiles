@@ -1,2 +1,17 @@
+URxvt.perl-ext-common: default,matcher,keyboard-select,resize-font
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: If true, copy to clipboard too
+
+URxvt.url-launcher:  /usr/bin/xdg-open
+URxvt.matcher.button:  1
+
 URxvt.font: xft:monospace:size=14
 URxvt.scrollBar: false
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:     resize-font:bigger
+URxvt.keysym.C-p:         resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+URxvt.resize-font.step: 2
