@@ -187,41 +187,47 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colors from Xresources
-set_from_resource $c1 color1  #f0f0f0
-set_from_resource $c2 color2  #f0f0f0
-set_from_resource $c3 color3  #f0f0f0
-set_from_resource $c4 color4  #f0f0f0
-set_from_resource $c5 color5  #f0f0f0
-set_from_resource $c6 color6  #f0f0f0
-set_from_resource $c7 color7  #f0f0f0
+set_from_resource $c1 i3wm.color1  #f0f0f0
+set_from_resource $c2 i3wm.color2  #f0f0f0
+set_from_resource $c3 i3wm.color3  #f0f0f0
+set_from_resource $c4 i3wm.color4  #f0f0f0
+set_from_resource $c5 i3wm.color5  #f0f0f0
+set_from_resource $c6 i3wm.color6  #f0f0f0
+set_from_resource $c7 i3wm.color7  #f0f0f0
+
+set $blue #615a9d 
+set $yellow #f1ca0d
+set $white #ffffff
+set $gray #4e575e
+set $purple #9c82b2
 
 # window colors
-#class                 border  backgr.  text indicator child_border
-client.focused          $c7      $c4    $c7  $c7   $c7
-client.focused_inactive $c3      $c4    $c7  $c7   $c7
-client.unfocused        $c3      $c4    $c7  $c7   $c7
-client.urgent           $c7      $c4    $c7  $c7   $c7
-client.placeholder      $c3      $c4    $c7  $c7   $c7
-client.background       $c3
+#class                  border   backgr.  text    indicator child_border
+client.focused          $yellow  $blue    $white  $white    $yellow    
+client.focused_inactive $yellow  $blue    $white  $white    $yellow
+client.unfocused        $gray    $blue    $white  $white    $gray
+client.urgent           $purple  $blue    $white  $white    $purple
+client.placeholder      $gray    $blue    $white  $white    $gray
+client.background       $purple
 
 #hide borders on edge of windows
 #hide_edge_borders both
 
 
 #execute dmenu with colors from Xresources
-bindsym $mod+d exec dmenu_run -nb "$c7" -nf "$c4" -sb "$c4" -sf "$c7"
+bindsym $mod+d exec dmenu_run -nb "#615a9d" -nf "#ffffff" -sb "#f1ca0d" -sf "#4e575e"
 
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         colors {
-        		background $c4
+        		background $blue
         		separator #757575
-        		#                  border     background       text
-        		focused_workspace  $c4        $c4              $c7
-        		inactive_workspace $c4        $c4              $c3
-        		urgent_workspace   $c4        $c4              $c7
+        		#                  border   background  text
+        		focused_workspace  $blue    $blue       $white
+        		inactive_workspace $blue    $blue       $gray
+        		urgent_workspace   $yellow  $yellow     $purple
         }
         position bottom
 }
@@ -241,13 +247,13 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
-exec --no-startup-id feh --bg-scale ~/Pictures/ismail-inceoglu-just-chillin.jpg
+exec --no-startup-id feh --bg-scale /home/collindabbieri/Pictures/thiemeyer_road_to_samarkand.jpg
 
 #allows transition between windows
 #this should also make rofi transparent but that doesn't work for some reason
 exec --no-startup-id compton -f
 
-exec --no-startup-id wal -R -a "85" 
+#exec --no-startup-id wal -a "85" -i "/home/collindabbieri/Pictures/pexels-roberto-shumski-1903702.jpg" 
 
 
 
@@ -385,6 +391,6 @@ smart_borders on
 hide_edge_borders smart_no_gaps
 
 gaps inner 10
-gaps outer 20
+gaps outer 10
 
 

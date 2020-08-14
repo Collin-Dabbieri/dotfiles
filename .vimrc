@@ -1,5 +1,3 @@
-
-
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -60,4 +58,19 @@ autocmd! bufwritepost .vimrc source %
 set pastetoggle=<F2>
 set clipboard=unnamed
 
+" Turn syntax highlighting on
+syntax on
 
+call plug#begin()
+Plug 'preservim/NERDTree'
+Plug 'dylanaraps/wal.vim'
+call plug#end()
+
+" use pywal vim color scheme
+" colorscheme wal
+
+" add line numbers to left of files
+set number
+
+" add line numbers relative to the cursor
+set relativenumber
